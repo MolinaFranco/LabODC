@@ -30,4 +30,5 @@ archivos **.s** si les resulta práctico para emprolijar el código y el Makefil
 ```bash
 $ make run
 ```
+
 Esto construirá el código y ejecutará qemu para su emulación
