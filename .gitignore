@@ -1,0 +1,6 @@
+Makefile
+*.elf
+*.img
+*.o
+*.txt
+*.list
