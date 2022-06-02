@@ -4,3 +4,4 @@ Makefile
 *.o
 *.txt
 *.list
+.gdb_history
