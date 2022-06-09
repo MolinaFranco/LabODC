@@ -5,3 +5,4 @@
 *.txt
 *.list
 .gdb_history
+Makefile
