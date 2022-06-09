@@ -9,6 +9,7 @@ all : kernel8.img
 %.o: %.s
 	$(ARMGNU)-as $(AOPS) $< -o $@
 
+
 clean :
 	rm -f *.o memory_map.txt kernel8.list kernel8.img kernel8.elf
 
