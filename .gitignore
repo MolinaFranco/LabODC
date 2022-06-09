@@ -1,8 +1,7 @@
-**/Makefile
+Makefile
 *.elf
 *.img
 *.o
 *.txt
 *.list
 .gdb_history
-Makefile
