@@ -1,6 +1,6 @@
 
-.equ COLOR_DINO_BODY1,  0x8b
-.equ COLOR_DINO_BODY2,  0x81bd
+.equ COLOR_DINO_BODY1,  0x00
+.equ COLOR_DINO_BODY2,  0x8f39
 .equ COLOR_DINO_EYE,  0xffff
 
 
@@ -16,7 +16,7 @@ doDinoUpperBodyBASE:
 	mov 	x3, #8
 	mov 	x4, #8
 	bl 		doRectangulo
-	add 	x1, x8, #0
+	add 	x1, x1, #0
 	add 	x2, x9, #32
 	mov 	x3, #4	
 	mov 	x4, #24	
@@ -362,7 +362,7 @@ doDino4:
 
 .globl doDinoT
 doDinoT:
-	
+
 	sub 	sp,sp, #16    
 	str 	x19, [sp, #8]   
 	str 	x30, [sp, #0]   
