@@ -17,22 +17,11 @@ main:
 	mov x4, #480
 	bl doRectangulo
 
-
-
-
-	movz 	x10, 0x00, lsl 16
-	movk 	x10, 0x0000, lsl 00
-	mov x1, #0
-	mov x2, #308
-	mov x3, #640
-	mov x4, #1
-	bl doRectangulo
-
 	mov x1, #100
 	mov x2, #220
 	mov x19, #1
-	
 	bl doDinoT
+	
 	mov x1, #400
 	mov x2, #200
 	bl doCactus
