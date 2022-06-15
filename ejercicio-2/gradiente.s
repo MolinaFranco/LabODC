@@ -3,8 +3,8 @@
 .equ BITS_PER_PIXEL,  	32
 
 
-.globl doRectangulo
-doRectangulo:  
+.globl doGradiente
+doGradiente:  
 // x1 -> x0
 // x2 -> y0
 // x3 -> ancho
@@ -16,8 +16,8 @@ drawRow:
 	mov		x5, #SCREEN_WIDTH
 	mul		x5, x2, x5
 
-	//cmp		x1, #0
-	//b.lt	fixsub
+	cmp		x1, #0
+	b.lt	fixsub
 
 endfixsub:
 	add		x5, x5, x1
@@ -38,6 +38,7 @@ drawCol:
 	cbnz 	x6, drawCol
 	add 	x2, x2, #1
 	sub 	x4, x4, #1
+    sub     w10, w10, 50
 	cbnz 	x4, drawRow
 end:	
 	ret
