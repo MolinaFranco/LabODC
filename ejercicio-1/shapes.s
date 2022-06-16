@@ -46,9 +46,9 @@ fixover:
 	mov		x7, SCREEN_WIDTH
 	sub		x8, x9, x7 
 	sub		x6, x6, x8
-	b drawCol
+	b 		drawCol
 
 fixsub:
 	add		x3, x3, x1
 	mov		x1, #0
-	b endfixsub
+	b 		endfixsub
