@@ -57,6 +57,10 @@ main:
 	bl 		doCloud	
 
 
+	mov 	x1, #620
+	mov 	x2, #5
+	bl 		doNumber	
+
 	// Infinite Loop
 EndLopp:
 	b 		EndLopp
