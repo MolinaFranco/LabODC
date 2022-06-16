@@ -128,7 +128,7 @@ doDinoUpperBody1:
 	str 	x30, [sp, #0]   
 	mov 	x8, x1
 	mov 	x9, x2
-	bl doDinoUpperBodyBASE
+	bl 		doDinoUpperBodyBASE
 	movz 	x10, COLOR_DINO_EYE, lsl 16
 	movk 	x10, COLOR_DINO_EYE, lsl 00
 	add 	x1, x8, #48
@@ -151,7 +151,7 @@ doDinoUpperBody2:
 	str 	x30, [sp, #0]   
 	mov 	x8, x1
 	mov 	x9, x2
-	bl doDinoUpperBodyBASE
+	bl 		doDinoUpperBodyBASE
 
 	movz 	x10, COLOR_DINO_EYE, lsl 16
 	movk 	x10, COLOR_DINO_EYE, lsl 00
@@ -375,7 +375,7 @@ doDinoT:
 	cmp		x19, #4
 	b.eq	doDino4 	 
 	b.eq 	dinoExit
-	b	doDino1 
+	b		doDino1 
 		
 dinoExit:
 
