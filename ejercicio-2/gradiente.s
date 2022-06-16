@@ -38,10 +38,16 @@ drawCol:
 	cbnz 	x6, drawCol
 	add 	x2, x2, #1
 	sub 	x4, x4, #1
-    sub     w10, w10, 50
+    add     w10, w10, #1
 	cbnz 	x4, drawRow
 end:	
 	ret
+
+	//	R 		  G 		B	
+//	0000 0000 0000 0000 0000 0000
+//	0000 0000 0000 0000 0000 0000
+//   
+
 
 fixover:
 	mov		x7, SCREEN_WIDTH

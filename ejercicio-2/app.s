@@ -24,12 +24,13 @@ mainpostinit:
 	mov 	x4, SCREEN_HEIGH
 	bl 		doRectangulo
 
-	movz 	x10, 0xec, lsl 16
+
+	movz 	x10, 0xf3, lsl 16
 	movk 	x10, 0xe2c6, lsl 00
 	mov 	x1, #0
-	mov 	x2, #270
-	mov 	x3, SCREEN_WIDTH
-	mov 	x4, SCREEN_HEIGH - 270
+	mov 	x2, #330
+	mov 	x3, #640
+	mov 	x4, #150
 	bl 		doGradiente
 	
 
