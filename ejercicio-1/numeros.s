@@ -40,7 +40,7 @@ n_0:
 	ldr 	x1,	[sp, #8]   
 	ldr 	x30,[sp, #0] 
 	add 	sp, sp, #32
-	ret
+	b 		cifra
 
 n_1:
 
@@ -74,7 +74,7 @@ n_1:
 	ldr 	x1,	[sp, #8]   
 	ldr 	x30,[sp, #0] 
 	add 	sp, sp, #32
-	ret
+	b 		cifra
 
 n_2:
 
@@ -118,7 +118,7 @@ n_2:
 	ldr 	x1,	[sp, #8]   
 	ldr 	x30,[sp, #0] 
 	add 	sp, sp, #32
-	ret
+	b  		cifra
 
 n_3:
 
@@ -162,7 +162,7 @@ n_3:
 	ldr 	x1,	[sp, #8]   
 	ldr 	x30,[sp, #0] 
 	add 	sp, sp, #32
-	ret
+	b 		cifra
 
 n_4:
 
@@ -196,7 +196,7 @@ n_4:
 	ldr 	x1,	[sp, #8]   
 	ldr 	x30,[sp, #0] 
 	add 	sp, sp, #32
-	ret     
+	b 		cifra     
 
 n_5:
 
@@ -240,7 +240,7 @@ n_5:
 	ldr 	x1,	[sp, #8]   
 	ldr 	x30,[sp, #0] 
 	add 	sp, sp, #32
-	ret     
+	b 		cifra     
 
 n_6:
 
@@ -289,7 +289,7 @@ n_6:
 	ldr 	x1,	[sp, #8]   
 	ldr 	x30,[sp, #0] 
 	add 	sp, sp, #32
-	ret     
+	b 		cifra     
 
 n_7:
 
@@ -318,7 +318,7 @@ n_7:
 	ldr 	x1,	[sp, #8]   
 	ldr 	x30,[sp, #0] 
 	add 	sp, sp, #32
-	ret     
+	b		cifra     
 
 n_8:
 
@@ -372,7 +372,7 @@ n_8:
 	ldr 	x1,	[sp, #8]   
 	ldr 	x30,[sp, #0] 
 	add 	sp, sp, #32
-	ret     
+	b		cifra     
 
 n_9:
 
@@ -411,15 +411,31 @@ n_9:
 	ldr 	x1,	[sp, #8]   
 	ldr 	x30,[sp, #0] 
 	add 	sp, sp, #32
-	ret     
+	b		cifra     
+
+cifra: 
+	cmp		x5, 0
+	b.eq	endfirstnum
+	
+	cmp 	x5, 1
+	b.eq	endsecnum
+
+	cmp 	x5, 2
+	b.eq	endternum
+
 
 .globl doNumber
 doNumber:
+    // utiliza los  1,2,8,9,10, 12, 13, 14, 15, 16, 17
+    // modifica x8, x9
+
+	mov x5, 0 	//utilizo para determinar en que cifra estoy
+
     sub 	sp,sp, #32    
-	str 	x10, [sp, #24]   
-	str 	x2, [sp, #16]   
-	str 	x1, [sp, #8]   
 	str 	x30, [sp, #0]   
+	str 	x1,  [sp, #8]   
+	str 	x2,  [sp, #16]   
+	str 	x10, [sp, #24]   
 	
     mov 	x8, x1
 	mov 	x9, x2
@@ -427,12 +443,62 @@ doNumber:
     movz 	x10, NUMBER_COLOR1, lsl 16
 	movk 	x10, NUMBER_COLOR2, lsl 00
 
-    bl      n_9
+
+    mov     x18, 4
+    mov     x19, 8
+
+
+    cmp		x18, #0
+	b.eq	n_0 	 
+    cmp		x18, #1
+	b.eq	n_1 	 
+    cmp		x18, #2
+	b.eq	n_2 	 
+    cmp		x18, #3
+	b.eq	n_3 
+    cmp		x18, #4
+	b.eq	n_4 	 
+    cmp		x18, #5
+	b.eq	n_5 	 
+    cmp		x18, #6
+	b.eq	n_6	 
+    cmp		x18, #7
+	b.eq	n_7 	 
+    cmp		x18, #8
+	b.eq	n_8 	 
+    cmp		x18, #9
+	b.eq	n_9 	 
     
-    
-    ldr 	x10, [sp, #24]   
-	ldr 	x2, [sp, #16]   
-	ldr 	x1,	[sp, #8]   
-	ldr 	x30,[sp, #0] 
+endfirstnum:
+
+    add     x1, x1, #16
+
+    cmp		x19, #0
+	b.eq	n_0 	 
+    cmp		x19, #1
+	b.eq	n_1 	 
+    cmp		x19, #2
+	b.eq	n_2 	 
+    cmp		x19, #3
+	b.eq	n_3 
+    cmp		x19, #4
+	b.eq	n_4 	 
+    cmp		x19, #5
+	b.eq	n_5 	 
+    cmp		x18, #6
+	b.eq	n_6	 
+    cmp		x19, #7
+	b.eq	n_7 	 
+    cmp		x19, #8
+	b.eq	n_8 	 
+    cmp		x19, #9
+	b.eq	n_9 	 
+
+endsecnum:
+
+	ldur 	x30, [sp, #0]   
+	ldur 	x1,  [sp, #8]   
+	ldur 	x2,  [sp, #16]   
+	ldur 	x10, [sp, #24]
 	add 	sp, sp, #32
 	ret
