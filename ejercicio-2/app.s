@@ -6,11 +6,12 @@
 
 .globl main
 main:
-	mov		x24, 3		//cantidad de cactus
+	mov		x24, 5		//cantidad de cactus
 	mov		x19, 1
 	mov 	x25, 610 	//posicion del cactus x0
 	mov 	x26, 200 	//posicion del dino y0
 	mov		x27, 610	// posicion de la nuve
+	mov		x29, 1		// tipo de cactus
 mainpostinit:
 
 	// dibujo fondo
@@ -54,7 +55,8 @@ endultic:
 
 	mov 	x1, x25
 	mov 	x2, #200
-	bl 		doCactus
+	mov		x18, x29
+	bl 		doCactusT
 
 // clouds
 
@@ -110,6 +112,16 @@ doDino:
 EndLopp:
 	b EndLopp
 
+
+
+
+
+
+
+
+
+
+
 resetdino:
 	mov		x19, 1
 	ret
@@ -118,7 +130,7 @@ delay:
 	add 	xzr,xzr,xzr
 	subs 	x28, x28, 1
 	cbnz 	x28, delay
-	//str		x0, [x20,#0]  al final guardo en el framebufer el contenido del array
+
 	b 		mainpostinit
 
 subirdino:
@@ -137,7 +149,13 @@ bajardinoreal:
 resetcactus:
 	mov 	x25, 610
 	sub 	x24, x24, 1
-	ret
+    add     x29, x29, 1
+
+    cmp     x29, 4
+    b.lt    cacmincua	
+    mov     x29, 1
+cacmincua:    
+    ret
 
 ultimocactus:
 	cmp		x25, #270
@@ -150,4 +168,5 @@ ultimodino:
 	b.ne	doDino
 	mov 	x19, 4
 	b		doDino
+
 
