@@ -1,4 +1,3 @@
-Makefile
 *.elf
 *.img
 *.o
