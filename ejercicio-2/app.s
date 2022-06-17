@@ -9,10 +9,10 @@ main:
 	mov		x15, 720	// posicion x0 del meteorito
 	mov		x16, 1		// posicion y0 del meteorito
 	mov		x19, 1
-	mov		x24, 3		//cantidad de cactus
+	mov		x24, 8		//cantidad de cactus
 	mov 	x25, 610 	//posicion del cactus x0
 	mov 	x26, 250 	//posicion del dino y0
-	mov		x27, 510	// posicion de la nuve
+	mov		x27, 410	// posicion de la nuve
 	mov		x29, 1		// tipo de cactus
 mainpostinit:
 
@@ -30,6 +30,15 @@ mainpostinit:
 	mov 	x3, SCREEN_WIDTH
 	mov 	x4, SCREEN_HEIGH
 	bl 		doRectangulo
+	
+
+	cmp		x24, 4
+	b.lt	meteorito
+endmeteorito:
+
+	mov		x1, #320
+	mov		x2, #286
+	bl		doMountain
 
 	movz 	x10, 0xdf, lsl 16
 	movk 	x10, 0xae94, lsl 00
@@ -94,7 +103,7 @@ doDino:
 	// Infinite Loop
 
 	mov 	x28, 1
-	lsl 	x28,x28,22	//velocity
+	lsl 	x28,x28,19	//velocity
 	b 		delay
 
 	//b		main
@@ -153,17 +162,28 @@ ultimocactus:
 	sub 	x25, x25, 5
 	b 		endultic
 
-ultimodino:
-	
-	// meteorito
+ultimodino:	
+	cmp 	x25, #270
+	b.ne	doDino
+	mov 	x19, 4
+	b		doDino
+
+meteorito:
 	mov 	x1, x15
 	mov 	x2, x16
 	bl 		doMeteorito
 	sub		x15, x15, 4
 	add		x16, x16, 2
+	cmp		x15, -600
+	b.lt	resetmeteorito
+	
+	b		endmeteorito
 
-	cmp 	x25, #270
-	b.ne	doDino
-	mov 	x19, 4
-	b		doDino
+
+resetmeteorito:
+	mov		x15, 720	// posicion x0 del meteorito
+	mov		x16, 1		// posicion y0 del meteorito
+	b		endmeteorito
+
+
 
