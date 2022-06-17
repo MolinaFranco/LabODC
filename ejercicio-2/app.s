@@ -6,8 +6,10 @@
 
 .globl main
 main:
-	mov		x24, 3		//cantidad de cactus
+	mov		x15, 720	// posicion x0 del meteorito
+	mov		x16, 1		// posicion y0 del meteorito
 	mov		x19, 1
+	mov		x24, 3		//cantidad de cactus
 	mov 	x25, 610 	//posicion del cactus x0
 	mov 	x26, 250 	//posicion del dino y0
 	mov		x27, 510	// posicion de la nuve
@@ -88,10 +90,6 @@ doDino:
 	mov 	x2, x26
 	bl doDinoT
 
-
-//rectangulo rojo para comprobar parpadeo
-
-
 	//---------------------------------------------------------------
 	// Infinite Loop
 
@@ -156,9 +154,16 @@ ultimocactus:
 	b 		endultic
 
 ultimodino:
+	
+	// meteorito
+	mov 	x1, x15
+	mov 	x2, x16
+	bl 		doMeteorito
+	sub		x15, x15, 4
+	add		x16, x16, 2
+
 	cmp 	x25, #270
 	b.ne	doDino
 	mov 	x19, 4
 	b		doDino
-
 

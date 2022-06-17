@@ -64,6 +64,10 @@ main:
 	mov 	x2, #100
 	bl 		doCloud	
 
+	mov 	x1, #200
+	mov 	x2, #50
+	bl 		doMeteorite
+
 
 	// Infinite Loop
 EndLopp:
