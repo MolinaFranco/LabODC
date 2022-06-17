@@ -198,10 +198,8 @@ doCactusT:
 
 	cmp		x18, #2
 	b.eq	doCactus2 	 
-	b.eq 	cactusExit
 	cmp		x18, #3
 	b.eq	doCactus3 	 
-	b.eq 	cactusExit	
 
 	b		doCactus1
 		
