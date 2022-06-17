@@ -23,12 +23,12 @@ endfixsub:
 	add		x5, x5, x1
 	lsl		x5, x5, #2
 	add		x5, x5, x20		//	x5 guardo (0,0) del cuadr		//x20 (0,0) del frambufer
-	mov		x6, x3			// 	x6 copia ancho
 
-	add		x22, x6, x1		// x9 tengo el punto final pasado de la raya
-	cmp		x22, SCREEN_WIDTH
+	add		x6, x3, x1		// x9 tengo el punto final pasado de la raya ancho mas puntos
+	cmp		x6, SCREEN_WIDTH
 	b.gt	fixover
 
+	mov		x6, x3			// 	x6 copia ancho
 				
 
 drawCol:
@@ -44,8 +44,8 @@ end:
 
 fixover:
 	mov		x7, SCREEN_WIDTH
-	sub		x8, x9, x7 
-	sub		x6, x6, x8
+	sub		x8, x6, x7 
+	sub		x3, x3, x8
 	b drawCol
 
 fixsub:

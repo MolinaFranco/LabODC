@@ -9,7 +9,7 @@ main:
 	mov		x24, 3		//cantidad de cactus
 	mov		x19, 1
 	mov 	x25, 610 	//posicion del cactus x0
-	mov 	x26, 270 	//posicion del dino y0
+	mov 	x26, 250 	//posicion del dino y0
 	mov		x27, 610	// posicion de la nuve
 	mov		x29, 1		// tipo de cactus
 mainpostinit:
@@ -84,7 +84,7 @@ endydino:
 	b.eq 	resetdino
 
 doDino:
-	mov 	x1, #270
+	mov 	x1, #200
 	mov 	x2, x26
 	bl doDinoT
 
@@ -136,7 +136,7 @@ subirdino:
 	b		endydino
 
 bajardino:
-	cmp		x26, 270
+	cmp		x26, 250
 	b.lt	bajardinoreal
 	b		endydino
 
