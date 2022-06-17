@@ -32,6 +32,15 @@ mainpostinit:
 	bl 		doRectangulo
 	
 
+// clouds
+
+    mov x1, x27
+	sub x27, x27, 1
+    mov x2, #100
+    // x10 -> Color
+	bl		doCloud
+
+
 	cmp		x24, 4
 	b.lt	meteorito
 endmeteorito:
@@ -66,14 +75,6 @@ endultic:
 	
 	mov		x18, x29
 	bl 		doCactusT
-
-// clouds
-
-    mov x1, x27
-	sub x27, x27, 1
-    mov x2, #100
-    // x10 -> Color
-	bl		doCloud
 
 
 // movimiento dino
