@@ -38,8 +38,10 @@ drawCol:
 	cbnz 	x6, drawCol
 	add 	x2, x2, #1
 	sub 	x4, x4, #1
-    sub     w10, w10, 50
+	sub		w10, w10, 128
 	cbnz 	x4, drawRow
+// rango de colores
+// df ae 49 - df 58 00
 end:	
 	ret
 
