@@ -10,7 +10,7 @@ main:
 	mov		x19, 1
 	mov 	x25, 610 	//posicion del cactus x0
 	mov 	x26, 250 	//posicion del dino y0
-	mov		x27, 610	// posicion de la nuve
+	mov		x27, 510	// posicion de la nuve
 	mov		x29, 1		// tipo de cactus
 mainpostinit:
 
@@ -90,13 +90,7 @@ doDino:
 
 
 //rectangulo rojo para comprobar parpadeo
-	movz 	x10, 0xff, lsl 16
-	movk 	x10, 0x0000, lsl 00
-	mov 	x1, #0
-	mov 	x2, #0
-	mov 	x3, 50
-	mov 	x4, 50
-	bl 		doRectangulo
+
 
 	//---------------------------------------------------------------
 	// Infinite Loop
