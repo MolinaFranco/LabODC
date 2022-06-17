@@ -35,7 +35,7 @@ drawCol:
 	stur	w10, [x5]		// xn registro de 64bit, wn de 32
 	add		x5, x5, #4
 	sub		x6, x6, #1
-	cbnz 	x6, drawCol
+	cbnz 	x6, drawCols
 	add 	x2, x2, #1
 	sub 	x4, x4, #1
 	sub		w10, w10, 128

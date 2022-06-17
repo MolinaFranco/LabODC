@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jun 17 11:30:50 2022
+# Make data base, printed on Fri Jun 17 19:21:35 2022
 
 # Variables
 
@@ -69,7 +69,7 @@ VIRTUALENVWRAPPER_PYTHON = /usr/bin/python3
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-1780f3f2-47b8-4da9-a11c-94bc32edffc7.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-472ba701-7abf-48b1-a763-5a54c5936837.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -79,7 +79,7 @@ VIRTUALENVWRAPPER_HOOK_DIR = /home/molina/.virtualenvs
 # automatic
 %F = $(notdir $%)
 # environment
-DISPLAY = 172.25.192.1:0
+DISPLAY = 192.168.32.1:0
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
@@ -87,7 +87,7 @@ PWD = /home/molina/famaf/LabOrgCompu
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/24974_interop
+WSL_INTEROP = /run/WSL/341_interop
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -238,10 +238,9 @@ GNUmakefile:
 # strcache buffers: 1 (0) / strings = 16 / storage = 148 B / avg = 9 B
 # current buf: size = 8162 B / used = 148 B / count = 16 / avg = 9 B
 
- 
 # strcache performance: lookups = 19 / hit rate = 15%
 # hash-table stats:
 # Load=16/8192=0%, Rehash=0, Collisions=1/19=5%
-# Finished Make data base on Fri Jun 17 11:30:50 2022
+# Finished Make data base on Fri Jun 17 19:21:35 2022
 
  

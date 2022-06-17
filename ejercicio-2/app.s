@@ -6,23 +6,24 @@
 
 .globl main
 main:
+	movz 	x11, 0x76, lsl 16
+	movk 	x11, 0xadd0, lsl 00			// color fondo
 	mov		x24, 3		//cantidad de cactus
 	mov		x19, 1
 	mov 	x25, 610 	//posicion del cactus x0
 	mov 	x26, 250 	//posicion del dino y0
-	mov		x27, 510	// posicion de la nuve
+	mov		x27, 410	// posicion de la nuve
 	mov		x29, 1		// tipo de cactus
 mainpostinit:
 
 	// dibujo fondo
 	// X0 contiene la direccion base del framebuffer - tiene el (0,0) del framebuffer
  	mov 	x20, x0	// Tengo que hacer un arreglo que tiene el tamaño del framebuffer 
-	bl virtual_frame.change_base_pos
-	bl virtual_frame.show_frame
+	bl 		virtual_frame.change_base_pos
+	bl 		virtual_frame.show_frame
 	//---------------- CODE HERE ------------------------------------
 
-	movz 	x10, 0x76, lsl 16
-	movk 	x10, 0xadd0, lsl 00
+	mov 	x10, x11	//queria probar hacerlo asi entonces vamos modificando el x11
 	mov 	x1, #0
 	mov 	x2, #0
 	mov 	x3, SCREEN_WIDTH
