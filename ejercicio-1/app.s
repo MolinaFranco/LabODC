@@ -24,6 +24,10 @@ main:
 	mov 	x4, #480
 	bl 		doRectangulo
 
+	mov		x1, #320
+	mov		x2, #286
+	bl		doMountain
+
 	movz 	x10, FLOOR_COLOR1, lsl 16
 	movk 	x10, FLOOR_COLOR2, lsl 00
 	mov 	x1, #0
@@ -41,6 +45,10 @@ main:
 	mov 	x2, #250
 	mov 	x18, #1
 	bl 		doCactusT
+
+	mov		x1, #100
+	mov		x2, #400
+	bl		doStone
 
 	mov		x1, #400
 	mov		x2, #250
