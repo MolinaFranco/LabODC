@@ -6,12 +6,19 @@
 
 .globl main
 main:
+<<<<<<< HEAD
 	mov		x24, 5		//cantidad de cactus
+=======
+	mov		x24, 3		//cantidad de cactus
+>>>>>>> 7833cede81e65502acee5df1a5e4f787f24c3234
 	mov		x19, 1
 	mov 	x25, 610 	//posicion del cactus x0
 	mov 	x26, 200 	//posicion del dino y0
 	mov		x27, 610	// posicion de la nuve
+<<<<<<< HEAD
 	mov		x29, 1		// tipo de cactus
+=======
+>>>>>>> 7833cede81e65502acee5df1a5e4f787f24c3234
 mainpostinit:
 
 	// dibujo fondo
@@ -55,8 +62,13 @@ endultic:
 
 	mov 	x1, x25
 	mov 	x2, #200
+<<<<<<< HEAD
+	
+=======
 	mov		x18, x29
 	bl 		doCactusT
+	bl 		doCactus
+>>>>>>> 7833cede81e65502acee5df1a5e4f787f24c3234
 
 // clouds
 
@@ -130,7 +142,10 @@ delay:
 	add 	xzr,xzr,xzr
 	subs 	x28, x28, 1
 	cbnz 	x28, delay
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7833cede81e65502acee5df1a5e4f787f24c3234
 	b 		mainpostinit
 
 subirdino:
@@ -149,6 +164,7 @@ bajardinoreal:
 resetcactus:
 	mov 	x25, 610
 	sub 	x24, x24, 1
+<<<<<<< HEAD
     add     x29, x29, 1
 
     cmp     x29, 4
@@ -156,6 +172,8 @@ resetcactus:
     mov     x29, 1
 cacmincua:    
     ret
+=======
+>>>>>>> 7833cede81e65502acee5df1a5e4f787f24c3234
 
 ultimocactus:
 	cmp		x25, #270
@@ -169,4 +187,7 @@ ultimodino:
 	mov 	x19, 4
 	b		doDino
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7833cede81e65502acee5df1a5e4f787f24c3234
