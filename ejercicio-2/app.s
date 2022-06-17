@@ -6,8 +6,11 @@
 
 .globl main
 main:
-	movz 	x11, 0x76, lsl 16
-	movk 	x11, 0xadd0, lsl 00			// color fondo
+
+	// variables importantes
+
+	movz 	x17, 0x76, lsl 16
+	movk 	x17, 0xadd0, lsl 00			// color fondo
 	mov		x24, 3		//cantidad de cactus
 	mov		x19, 1
 	mov 	x25, 610 	//posicion del cactus x0
@@ -23,12 +26,15 @@ mainpostinit:
 	bl 		virtual_frame.show_frame
 	//---------------- CODE HERE ------------------------------------
 
-	mov 	x10, x11	//queria probar hacerlo asi entonces vamos modificando el x11
+	mov 	x10, x17	//queria probar hacerlo asi entonces vamos modificando el x11
 	mov 	x1, #0
 	mov 	x2, #0
 	mov 	x3, SCREEN_WIDTH
 	mov 	x4, SCREEN_HEIGH
 	bl 		doRectangulo
+
+	cbnz		x17, modificarfondo
+endmodificarfondo:
 
 	movz 	x10, 0xdf, lsl 16
 	movk 	x10, 0xae94, lsl 00
@@ -161,5 +167,9 @@ ultimodino:
 	b.ne	doDino
 	mov 	x19, 4
 	b		doDino
+
+modificarfondo:
+	sub		x17, x17, 1
+	b 		endmodificarfondo
 
 
