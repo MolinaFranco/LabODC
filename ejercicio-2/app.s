@@ -9,7 +9,7 @@ main:
 	mov		x24, 3		//cantidad de cactus
 	mov		x19, 1
 	mov 	x25, 610 	//posicion del cactus x0
-	mov 	x26, 200 	//posicion del dino y0
+	mov 	x26, 270 	//posicion del dino y0
 	mov		x27, 610	// posicion de la nuve
 	mov		x29, 1		// tipo de cactus
 mainpostinit:
@@ -17,16 +17,8 @@ mainpostinit:
 	// dibujo fondo
 	// X0 contiene la direccion base del framebuffer - tiene el (0,0) del framebuffer
  	mov 	x20, x0	// Tengo que hacer un arreglo que tiene el tamaño del framebuffer 
- 	mov 	x20, x0	// Save framebuffer base address to x20
-<<<<<<< HEAD
- 	
-	//add 	x20, x0, x0	  guardo el doble del framebufer	
-	
-	
-=======
 	bl virtual_frame.change_base_pos
 	bl virtual_frame.show_frame
->>>>>>> 7c4786d (ahora no hay mas parpadeo 🙌)
 	//---------------- CODE HERE ------------------------------------
 
 	movz 	x10, 0x76, lsl 16
@@ -59,7 +51,7 @@ endultic:
 	b.le	resetcactus
 
 	mov 	x1, x25
-	mov 	x2, #200
+	mov 	x2, #250
 	
 	mov		x18, x29
 	bl 		doCactusT
@@ -92,7 +84,7 @@ endydino:
 	b.eq 	resetdino
 
 doDino:
-	mov 	x1, #200
+	mov 	x1, #270
 	mov 	x2, x26
 	bl doDinoT
 
@@ -144,7 +136,7 @@ subirdino:
 	b		endydino
 
 bajardino:
-	cmp		x26, 200
+	cmp		x26, 270
 	b.lt	bajardinoreal
 	b		endydino
 
